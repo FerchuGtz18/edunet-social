@@ -26,7 +26,7 @@ const Login = () => {
 
       
       // 🔐 Guardamos datos correctos
-      localStorage.setItem('usuarioId', res.data.usuario.id);
+      localStorage.setItem('usuarioId', res.data.usuarioId);
       localStorage.setItem('nombreUsuario', res.data.nombre);
 
       navigate('/tinder');
