@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt');
 const Usuario = require('../models/Usuario');
 const { encriptarDato, desencriptarDato } = require('../utils/crypto');
 
@@ -10,8 +11,9 @@ router.post('/registro', async (req, res) => {
     const existe = await Usuario.findOne({ email });
     if (existe) return res.status(400).json({ error: "El email ya está registrado" });
 
+    const hashedPassword = await bcrypt.hash(password, 10); // 'password' ya viene encriptado del front
     const nuevoUsuario = new Usuario({
-      nombre, apellido, email, password, // Viene encriptado del front
+      nombre, apellido, email, password: hashedPassword, // Viene encriptado del front
       whatsapp, residencia, genero, buscando, astrologia
     });
 
@@ -33,9 +35,8 @@ router.post('/login', async (req, res) => {
     }
 
     // Comparamos los datos encriptados directamente
-    if (usuario.password !== password) {
-      return res.status(401).json({ error: "Contraseña incorrecta" });
-    }
+    const match = await bcrypt.compare(password, usuario.password);   
+    if (!match) return res.status(401).json({ error: "Contraseña incorrecta" });
 
     res.json({ 
       mensaje: "Login exitoso", 

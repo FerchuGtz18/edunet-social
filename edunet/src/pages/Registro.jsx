@@ -61,7 +61,7 @@ const Registro = () => {
       nombre: formData.nombre,
       apellido: formData.apellido,
       email: formData.email,
-      password: encriptarDato(formData.password),
+      password: formData.password ,
       whatsapp: formData.whatsapp,
       residencia: formData.residencia,
       genero: formData.genero,

@@ -18,7 +18,7 @@ const Login = () => {
       // Encriptamos la contraseña para que sea igual a la de la DB
       const datosLogin = {
         email: formData.email,
-        password: encriptarDato(formData.password)
+        password: formData.password
       };
 
       const res = await axios.post('https://edunet-server-03xf.onrender.com/api/auth/login', datosLogin);
