@@ -21,12 +21,14 @@ const Login = () => {
         password: encriptarDato(formData.password)
       };
 
-      const res = await axios.post('http://localhost:5000/api/auth/login', datosLogin);
+      const res = await axios.post('https://edunet-server-03xf.onrender.com/api/auth/login', datosLogin);
       
-      localStorage.setItem('usuarioId', res.data.usuarioId);
-      localStorage.setItem('nombre', res.data.nombre);
-      
-      navigate('/explorar');
+      // 🔐 Guardamos datos correctos
+      localStorage.setItem('usuarioId', res.data.usuario.id);
+      localStorage.setItem('nombreUsuario', res.data.usuario.nombre);
+
+      navigate('/tinder');
+      window.location.reload(); // fuerza actualización del Navbar
     } catch (err) {
       alert("Error: Credenciales incorrectas");
     }

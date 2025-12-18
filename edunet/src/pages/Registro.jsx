@@ -76,7 +76,7 @@ const Registro = () => {
       }
     };
     try {
-      await axios.post('http://localhost:5000/api/auth/registro', datosFinales);
+      await axios.post('https://edunet-server-03xf.onrender.com/api/auth/registro', datosFinales);
       navigate('/login');
     } catch (err) {
       alert("Error en el registro. Revisa los datos.");

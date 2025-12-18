@@ -32,7 +32,7 @@ const Perfil = () => {
   useEffect(() => {
     const fetchPerfil = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/auth/perfil/${usuarioId}`);
+        const res = await axios.get(`https://edunet-server-03xf.onrender.com/api/auth/perfil/${usuarioId}`);
         setUserData(res.data);
       } catch (err) {
         console.error("Error al cargar perfil");
@@ -69,7 +69,7 @@ const Perfil = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/auth/perfil/${usuarioId}`, userData);
+      await axios.put(`https://edunet-server-03xf.onrender.com/api/auth/perfil/${usuarioId}`, userData);
       setMensaje("✅ Perfil actualizado");
       setTimeout(() => setMensaje(''), 3000);
     } catch (err) {

@@ -10,7 +10,7 @@ const Matches = () => {
   useEffect(() => {
     const fetchMatches = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/auth/mis-matches/${usuarioId}`);
+        const res = await axios.get(`https://edunet-server-03xf.onrender.com/api/auth/mis-matches/${usuarioId}`);
         setMisMatches(res.data);
         setCargando(false);
       } catch (err) {
