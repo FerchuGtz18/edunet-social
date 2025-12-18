@@ -1,0 +1,119 @@
+/* Contenedor principal */
+.registro-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #1a1a1a; /* Fondo oscuro */
+  color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #4facfe; /* Azul tecnológico */
+  margin-bottom: 25px;
+}
+
+h3 {
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+  margin-top: 25px;
+  color: #00f2fe;
+  font-size: 1.1rem;
+}
+
+/* Estilo de los formularios */
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+input, select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #2d2d2d;
+  color: white;
+  font-size: 1rem;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #4facfe;
+  box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+}
+
+/* Fila para Día, Mes, Año */
+.fecha-nacimiento {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+label {
+  font-size: 0.9rem;
+  color: #bbb;
+  margin-bottom: -10px;
+}
+
+/* Botón principal */
+button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.2s, hover 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+button:active {
+  transform: translateY(0);
+}
+.alert {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.success { background: #1b4332; color: #74c69d; border: 1px solid #2d6a4f; }
+.error { background: #431b1b; color: #e5989b; border: 1px solid #660708; }
+.info { background: #1b2643; color: #a9d6e5; border: 1px solid #01497c; }
+
+.signo-badge {
+  background: linear-gradient(90deg, #ff8c00, #ff0080);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+  margin: 10px 0;
+  box-shadow: 0 4px 10px rgba(255, 140, 0, 0.3);
+}
+
+@media (max-width: 600px) {
+  .registro-container {
+    margin: 20px 1rem;
+    padding: 20px;
+  }
+
+  .fecha-nacimiento {
+    grid-template-columns: 1fr;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}

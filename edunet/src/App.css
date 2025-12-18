@@ -1,0 +1,13 @@
+.main-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1.5rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+  }
+}
