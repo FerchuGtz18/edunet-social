@@ -14,7 +14,7 @@ const TinderStudy = () => {
   useEffect(() => {
     const cargarAlumnos = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/auth/alumnos/${userActualId}`);
+        const res = await axios.get(`https://edunet-server-03xf.onrender.com/api/auth/alumnos/${userActualId}`);
         setAlumnos(res.data);
         setLoading(false);
       } catch (err) {
@@ -28,7 +28,7 @@ const TinderStudy = () => {
   const handleVoto = async (tipo, idDestino, nombreDestino) => {
     if (tipo === 'like') {
       try {
-        const res = await axios.post('http://localhost:5000/api/auth/like', {
+        const res = await axios.post('https://edunet-server-03xf.onrender.com/api/auth/like', {
           idDe: userActualId,
           idA: idDestino
         });
