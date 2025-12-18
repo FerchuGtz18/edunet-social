@@ -86,7 +86,7 @@ const Registro = () => {
   return (
     <div className="registro-container">
       <form className="registro-box" onSubmit={handleSubmit}>
-        <h2>✨ Únete a Edunet</h2>
+        <h2>✨ Únete a AstralMatch</h2>
         
         {/* SECCIÓN 1: DATOS PERSONALES */}
         <div className="input-group">

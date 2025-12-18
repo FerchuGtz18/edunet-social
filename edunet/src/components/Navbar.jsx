@@ -20,7 +20,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to={usuarioId ? "/tinder" : "/"} onClick={cerrarMenu}>
-          🚀 Edunet
+          🚀 AstralMatch
         </Link>
       </div>
 
