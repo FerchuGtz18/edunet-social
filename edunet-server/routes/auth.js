@@ -28,14 +28,21 @@ router.post('/registro', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body; // 'password' viene encriptado del front
+    console.log("Email recibido:", email);
+    console.log("Password recibido:", password);
+
     const usuario = await Usuario.findOne({ email });
 
     if (!usuario) {
+      console.log("Usuario no encontrado");
       return res.status(401).json({ error: "Usuario no encontrado" });
     }
 
+    console.log("Password guardado en DB:", usuario.password);
+
     // Comparamos los datos encriptados directamente
-    const match = await bcrypt.compare(password, usuario.password);   
+    const match = await bcrypt.compare(password, usuario.password); 
+    console.log("Coincide?", match);  
     if (!match) return res.status(401).json({ error: "Contraseña incorrecta" });
 
     res.json({ 
@@ -44,6 +51,7 @@ router.post('/login', async (req, res) => {
       nombre: usuario.nombre 
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: "Error en el servidor durante el login" });
   }
 });
