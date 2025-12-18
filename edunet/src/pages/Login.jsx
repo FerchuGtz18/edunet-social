@@ -21,11 +21,13 @@ const Login = () => {
         password: formData.password
       };
 
+      // Producción
       const res = await axios.post('https://edunet-server-03xf.onrender.com/api/auth/login', datosLogin);
+
       
       // 🔐 Guardamos datos correctos
       localStorage.setItem('usuarioId', res.data.usuario.id);
-      localStorage.setItem('nombreUsuario', res.data.usuario.nombre);
+      localStorage.setItem('nombreUsuario', res.data.nombre);
 
       navigate('/tinder');
       window.location.reload(); // fuerza actualización del Navbar
